@@ -36,6 +36,7 @@ type Err string
 
 type JoinArgs struct {
 	Servers map[int][]string // new GID -> servers mappings
+
 	// 需要添加的字段: 本次请求的 ID 和同一客户端上次请求的 ID
 }
 
@@ -46,6 +47,7 @@ type JoinReply struct {
 
 type LeaveArgs struct {
 	GIDs   []int
+
 	// 需要添加的字段: 同 JoinArgs
 }
 
@@ -57,6 +59,7 @@ type LeaveReply struct {
 type MoveArgs struct {
 	Shard  int
 	GID    int
+
 	// 需要添加的字段: 同 JoinArgs
 }
 
@@ -67,6 +70,7 @@ type MoveReply struct {
 
 type QueryArgs struct {
 	Num    int // desired config number
+	
 	// 需要添加的字段: 同 JoinArgs
 }
 
