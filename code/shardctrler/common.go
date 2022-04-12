@@ -23,59 +23,59 @@ const NShards = 10
 // A configuration -- an assignment of shards to groups.
 // Please don't change this.
 type Config struct {
-	Num    int              // config number
-	Shards [NShards]int     // shard -> gid
-	Groups map[int][]string // gid -> servers[]
+    Num    int              // config number
+    Shards [NShards]int     // shard -> gid
+    Groups map[int][]string // gid -> servers[]
 }
 
 const (
-	OK = "OK"
+    OK = "OK"
 )
 
 type Err string
 
 type JoinArgs struct {
-	Servers map[int][]string // new GID -> servers mappings
+    Servers map[int][]string // new GID -> servers mappings
 
-	// 需要添加的字段: 本次请求的 ID 和同一客户端上次请求的 ID
+    // 需要添加的字段: 本次请求的 ID 和同一客户端上次请求的 ID
 }
 
 type JoinReply struct {
-	WrongLeader bool
-	Err         Err
+    WrongLeader bool
+    Err         Err
 }
 
 type LeaveArgs struct {
-	GIDs   []int
+    GIDs   []int
 
-	// 需要添加的字段: 同 JoinArgs
+    // 需要添加的字段: 同 JoinArgs
 }
 
 type LeaveReply struct {
-	WrongLeader bool
-	Err         Err
+    WrongLeader bool
+    Err         Err
 }
 
 type MoveArgs struct {
-	Shard  int
-	GID    int
+    Shard  int
+    GID    int
 
-	// 需要添加的字段: 同 JoinArgs
+    // 需要添加的字段: 同 JoinArgs
 }
 
 type MoveReply struct {
-	WrongLeader bool
-	Err         Err
+    WrongLeader bool
+    Err         Err
 }
 
 type QueryArgs struct {
-	Num    int // desired config number
-	
-	// 需要添加的字段: 同 JoinArgs
+    Num    int // desired config number
+    
+    // 需要添加的字段: 同 JoinArgs
 }
 
 type QueryReply struct {
-	WrongLeader bool
-	Err         Err
-	Config      Config
+    WrongLeader bool
+    Err         Err
+    Config      Config
 }
