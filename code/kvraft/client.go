@@ -37,9 +37,11 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 // arguments. and reply must be passed as a pointer.
 //
 func (ck *Clerk) Get(key string) string {
+
 	// 创建请求args, 通过nrand()生成唯一ID, 同时要包含最近一次请求的ID
 	// 在循环体内发送RPC, 成功则跳出循环, 否则更改Leader编号, 重新尝试
 	// 更新最近一次请求的ID
+
 	return ""
 }
 
@@ -54,6 +56,7 @@ func (ck *Clerk) Get(key string) string {
 // arguments. and reply must be passed as a pointer.
 //
 func (ck *Clerk) PutAppend(key string, value string, op string) {
+
 	// 与Get逻辑相同
 }
 
